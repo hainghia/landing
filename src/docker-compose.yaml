@@ -1,0 +1,14 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nginx
+    restart: always
+    ports:
+      - "8099:80"
+    volumes:
+      - ./docker/log:/var/log/nginx
+      - ./docker/conf.d:/etc/nginx/conf.d
+    environment:
+      NGINX_ENTRYPOINT_QUIET_LOGS: 1

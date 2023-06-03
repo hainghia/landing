@@ -1,31 +1,10 @@
-[//]: # (![logo]&#40;logo.svg?raw=true "logo.svg"&#41;)
-___
-
-## Git Repositories
-
-- [GitHub](https://github.com/rust-pro/wasm-todo)
-- [GitLab](https://gitlab.com/rust-inc/wasm-todo)
-- [Bitbucket](https://bitbucket.org/hainghia/wasm-todo)
-
-### Remote repository
-
-```shell
-git remote -v
-
-git remote add origin git@github.com:rust-pro/wasm-todo.git
-git remote add gitlab git@gitlab.com:rust-inc/wasm-todo.git
-git remote add bitbucket git@bitbucket.org:hainghia/wasm-todo.git
-
-
-git add .; git commit -asm "Initial commit";git push origin main; git push gitlab main; git push bitbucket main
-```
-
 ## [Trunk Commands](https://trunkrs.dev/commands)
 
 [trunkrs](https://trunkrs.dev/#install)
 
 ```shell
 cargo install --locked trunk
+rustup target add wasm32-unknown-unknown
 ```
 
 `trunk build` runs a cargo build targeting the wasm32 instruction set, runs `wasm-bindgen` on the built WASM, and spawns

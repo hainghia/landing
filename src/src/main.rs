@@ -1,30 +1,42 @@
-use gloo::storage::{LocalStorage, Storage};
-use state::{Entry, Filter, State};
-use strum::IntoEnumIterator;
-use web_sys::HtmlInputElement as InputElement;
-use yew::events::{FocusEvent, KeyboardEvent};
+use yew::prelude::*;
+use yew_router::prelude::*;
+
+mod components;
+mod content;
+mod generator;
+mod pages;
+
+use pages::author::Author;
+use pages::author_list::AuthorList;
+use pages::home::Home;
+use pages::page_not_found::PageNotFound;
+use pages::post::Post;
+use pages::post_list::PostList;
 use yew::html::Scope;
-use yew::{classes, html, Classes, Component, Context, Html, NodeRef, TargetCast};
 
-mod state;
-
-const KEY: &str = "yew.todomvc.self";
+#[derive(Routable, PartialEq, Eq, Clone, Debug)]
+pub enum Route {
+    #[at("/posts/:id")]
+    Post { id: u64 },
+    #[at("/posts")]
+    Posts,
+    #[at("/authors/:id")]
+    Author { id: u64 },
+    #[at("/authors")]
+    Authors,
+    #[at("/")]
+    Home,
+    #[not_found]
+    #[at("/404")]
+    NotFound,
+}
 
 pub enum Msg {
-    Add(String),
-    Edit((usize, String)),
-    Remove(usize),
-    SetFilter(Filter),
-    ToggleAll,
-    ToggleEdit(usize),
-    Toggle(usize),
-    ClearCompleted,
-    Focus,
+    ToggleNavbar,
 }
 
 pub struct App {
-    state: State,
-    focus_ref: NodeRef,
+    navbar_active: bool,
 }
 
 impl Component for App {
@@ -32,220 +44,102 @@ impl Component for App {
     type Properties = ();
 
     fn create(_ctx: &Context<Self>) -> Self {
-        let entries = LocalStorage::get(KEY).unwrap_or_else(|_| Vec::new());
-        let state = State {
-            entries,
-            filter: Filter::All,
-            edit_value: "".into(),
-        };
-        let focus_ref = NodeRef::default();
-        Self { state, focus_ref }
+        Self {
+            navbar_active: false,
+        }
     }
 
     fn update(&mut self, _ctx: &Context<Self>, msg: Self::Message) -> bool {
         match msg {
-            Msg::Add(description) => {
-                if !description.is_empty() {
-                    let entry = Entry {
-                        description: description.trim().to_string(),
-                        completed: false,
-                        editing: false,
-                    };
-                    self.state.entries.push(entry);
-                }
-            }
-            Msg::Edit((idx, edit_value)) => {
-                self.state.complete_edit(idx, edit_value.trim().to_string());
-                self.state.edit_value = "".to_string();
-            }
-            Msg::Remove(idx) => {
-                self.state.remove(idx);
-            }
-            Msg::SetFilter(filter) => {
-                self.state.filter = filter;
-            }
-            Msg::ToggleEdit(idx) => {
-                let entry = self
-                    .state
-                    .entries
-                    .iter()
-                    .filter(|e| self.state.filter.fits(e))
-                    .nth(idx)
-                    .unwrap();
-                self.state.edit_value = entry.description.clone();
-                self.state.clear_all_edit();
-                self.state.toggle_edit(idx);
-            }
-            Msg::ToggleAll => {
-                let status = !self.state.is_all_completed();
-                self.state.toggle_all(status);
-            }
-            Msg::Toggle(idx) => {
-                self.state.toggle(idx);
-            }
-            Msg::ClearCompleted => {
-                self.state.clear_completed();
-            }
-            Msg::Focus => {
-                if let Some(input) = self.focus_ref.cast::<InputElement>() {
-                    input.focus().unwrap();
-                }
+            Msg::ToggleNavbar => {
+                self.navbar_active = !self.navbar_active;
+                true
             }
         }
-        LocalStorage::set(KEY, &self.state.entries).expect("failed to set");
-        true
     }
 
     fn view(&self, ctx: &Context<Self>) -> Html {
-        let hidden_class = if self.state.entries.is_empty() {
-            "hidden"
-        } else {
-            ""
-        };
         html! {
-            <div class="todomvc-wrapper">
-                <section class="todoapp">
-                    <header class="header">
-                        <h1>{ "Công việc 1" }</h1>
-                        { self.view_input(ctx.link()) }
-                    </header>
-                    <section class={classes!("main", hidden_class)}>
-                        <input
-                            type="checkbox"
-                            class="toggle-all"
-                            id="toggle-all"
-                            checked={self.state.is_all_completed()}
-                            onclick={ctx.link().callback(|_| Msg::ToggleAll)}
-                        />
-                        <label for="toggle-all" />
-                        <ul class="todo-list">
-                            { for self.state.entries.iter().filter(|e| self.state.filter.fits(e)).enumerate().map(|e| self.view_entry(e, ctx.link())) }
-                        </ul>
-                    </section>
-                    <footer class={classes!("footer", hidden_class)}>
-                        <span class="todo-count">
-                            <strong>{ self.state.total() }</strong>
-                            { " item(s) left" }
-                        </span>
-                        <ul class="filters">
-                            { for Filter::iter().map(|flt| self.view_filter(flt, ctx.link())) }
-                        </ul>
-                        <button class="clear-completed" onclick={ctx.link().callback(|_| Msg::ClearCompleted)}>
-                            { format!("Clear completed ({})", self.state.total_completed()) }
-                        </button>
-                    </footer>
-                </section>
-                <footer class="info">
-                    <p>{ "Double-click để chỉnh sửa công việc" }</p>
-                    <p>{ "Written by Hai Nghia" }</p>
+            <BrowserRouter>
+                { self.view_nav(ctx.link()) }
+
+                <main>
+                    <Switch<Route> render={switch} />
+                </main>
+                <footer class="footer">
+                    <div class="content has-text-centered">
+                        { "Powered by " }
+                        <a href="https://yew.rs">{ "Yew" }</a>
+                        { " using " }
+                        <a href="https://bulma.io">{ "Bulma" }</a>
+                        { " and images from " }
+                        <a href="https://unsplash.com">{ "Unsplash" }</a>
+                    </div>
                 </footer>
-            </div>
+            </BrowserRouter>
         }
     }
 }
 
 impl App {
-    fn view_filter(&self, filter: Filter, link: &Scope<Self>) -> Html {
-        let cls = if self.state.filter == filter {
-            "selected"
-        } else {
-            "not-selected"
-        };
-        html! {
-            <li>
-                <a class={cls}
-                   href={filter.as_href()}
-                   onclick={link.callback(move |_| Msg::SetFilter(filter))}
-                >
-                    { filter }
-                </a>
-            </li>
-        }
-    }
+    fn view_nav(&self, link: &Scope<Self>) -> Html {
+        let Self { navbar_active, .. } = *self;
 
-    fn view_input(&self, link: &Scope<Self>) -> Html {
-        let onkeypress = link.batch_callback(|e: KeyboardEvent| {
-            if e.key() == "Enter" {
-                let input: InputElement = e.target_unchecked_into();
-                let value = input.value();
-                input.set_value("");
-                Some(Msg::Add(value))
-            } else {
-                None
-            }
-        });
-        html! {
-            // You can use standard Rust comments. One line:
-            // <li></li>
-            <input
-                class="new-todo"
-                placeholder="Thêm mới công việc?"
-                {onkeypress}
-            />
-            /* Or multiline:
-            <ul>
-                <li></li>
-            </ul>
-            */
-        }
-    }
+        let active_class = if !navbar_active { "is-active" } else { "" };
 
-    fn view_entry(&self, (idx, entry): (usize, &Entry), link: &Scope<Self>) -> Html {
-        let mut class = Classes::from("todo");
-        if entry.editing {
-            class.push(" editing");
-        }
-        if entry.completed {
-            class.push(" completed");
-        }
         html! {
-            <li {class}>
-                <div class="view">
-                    <input
-                        type="checkbox"
-                        class="toggle"
-                        checked={entry.completed}
-                        onclick={link.callback(move |_| Msg::Toggle(idx))}
-                    />
-                    <label ondblclick={link.callback(move |_| Msg::ToggleEdit(idx))}>{ &entry.description }</label>
-                    <button class="destroy" onclick={link.callback(move |_| Msg::Remove(idx))} />
+            <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                    <h1 class="navbar-item is-size-3">{ "Lander" }</h1>
+
+                    <button class={classes!("navbar-burger", "burger", active_class)}
+                        aria-label="menu" aria-expanded="false"
+                        onclick={link.callback(|_| Msg::ToggleNavbar)}
+                    >
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </button>
                 </div>
-                { self.view_entry_edit_input((idx, entry), link) }
-            </li>
+                <div class={classes!("navbar-menu", active_class)}>
+                    <div class="navbar-start">
+                        <Link<Route> classes={classes!("navbar-item")} to={Route::Home}>
+                            { "Home" }
+                        </Link<Route>>
+                        <Link<Route> classes={classes!("navbar-item")} to={Route::Posts}>
+                            { "Posts" }
+                        </Link<Route>>
+                    </div>
+                </div>
+            </nav>
         }
     }
+}
 
-    fn view_entry_edit_input(&self, (idx, entry): (usize, &Entry), link: &Scope<Self>) -> Html {
-        let edit = move |input: InputElement| {
-            let value = input.value();
-            input.set_value("");
-            Msg::Edit((idx, value))
-        };
-
-        let onblur = link.callback(move |e: FocusEvent| edit(e.target_unchecked_into()));
-
-        let onkeypress = link.batch_callback(move |e: KeyboardEvent| {
-            (e.key() == "Enter").then(|| edit(e.target_unchecked_into()))
-        });
-
-        if entry.editing {
-            html! {
-                <input
-                    class="edit"
-                    type="text"
-                    ref={self.focus_ref.clone()}
-                    value={self.state.edit_value.clone()}
-                    onmouseover={link.callback(|_| Msg::Focus)}
-                    {onblur}
-                    {onkeypress}
-                />
-            }
-        } else {
-            html! { <input type="hidden" /> }
+fn switch(routes: Route) -> Html {
+    match routes {
+        Route::Post { id } => {
+            html! { <Post seed={id} /> }
+        }
+        Route::Posts => {
+            html! { <PostList /> }
+        }
+        Route::Author { id } => {
+            html! { <Author seed={id} /> }
+        }
+        Route::Authors => {
+            html! { <AuthorList /> }
+        }
+        Route::Home => {
+            html! { <Home /> }
+        }
+        Route::NotFound => {
+            html! { <PageNotFound /> }
         }
     }
 }
 
 fn main() {
+    wasm_logger::init(wasm_logger::Config::new(log::Level::Trace));
     yew::Renderer::<App>::new().render();
 }

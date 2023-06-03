@@ -21,4 +21,5 @@ router
 .vagrant/
 
 *.log
+Cargo.lock
 

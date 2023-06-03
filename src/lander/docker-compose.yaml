@@ -1,0 +1,12 @@
+services:
+  lander:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: nginx
+    restart: always
+    volumes:
+      - ./docker/log:/var/log/nginx
+      - ./docker/conf.d:/etc/nginx/conf.d
+    environment:
+      NGINX_ENTRYPOINT_QUIET_LOGS: 1

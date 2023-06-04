@@ -35,12 +35,12 @@ impl Home {
     fn view_info_tiles(&self) -> Html {
         html! {
             <>
-                <a class="title" href="http://kukun.site">
+                <a class="title" href="https://permate-tracker.com/c/l/click/1">
                     <div class="tile is-child box" id="cta">
                         { "Click CTA 1" }
                     </div>
                 </a>
-                <a class="title" href="http://kukun.site">
+                <a class="title" href="https://permate-tracker.com/c/l/click/2">
                     <div class="tile is-child box" id="cta">
                         { "Click CTA 2" }
                     </div>

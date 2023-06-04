@@ -10,29 +10,31 @@
   <link rel="stylesheet" href="/index-cbb839faa6638bde.css">
   <script type="module">
     import init from '/offer-fcf8114657c92b97.js';
+
     init('/offer-fcf8114657c92b97_bg.wasm');
   </script>
 
   <link rel="preload" href="/offer-fcf8114657c92b97_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
   <link rel="modulepreload" href="/offer-fcf8114657c92b97.js">
   <meta http-equiv="delegate-ch" content="sec-ch-ua ; sec-ch-ua-mobile https://permate-tracker.com; sec-ch-ua-arch https://permate-tracker.com; sec-ch-ua-model https://permate-tracker.com; sec-ch-ua-platform https://permate-tracker.com; sec-ch-ua-platform-version https://permate-tracker.com; sec-ch-ua-bitness https://permate-tracker.com; sec-ch-ua-full-version-list https://permate-tracker.com; sec-ch-ua-full-version https://permate-tracker.com">
-  <script id="p-lander-script">!function (e, t, o) {
-    var i = "https:" === e.location.protocol ? "secure; " : "";
-    setTimeout((function () {
-      var r = /[?&]pm_cid(=([^&#]*)|&|#|$)/.exec(e.location.href);
-      if (r && r[2]) var c = r[2], n = t.cookie.match(new RegExp("(^| )p-" + c + "=([^;]+)"));
-      var a = t.cookie.match(/(^| )p-cep=([^;]+)/), p = location.href;
-      if (a && (!c || void 0 === c) && p.indexOf("cep=") < 0) {
-        var f = p.indexOf("?") > -1 ? "&" : "?";
-        p += f + a.pop()
-      }
-      var s = t.createElement("script"), d = t.scripts[0];
-      if (s.defer = !0, s.src = o + (-1 === o.indexOf("?") ? "?" : "&") + "ref=" + encodeURIComponent(t.referrer) + "&location=l&url=" + encodeURIComponent(p) + "&time=" + (new Date).getTime() + (n ? "&cid=no" : ""), d.parentNode.insertBefore(s, d), c) {
-        var m = new Date;
-        m.setTime(m.getTime() + 864e3), t.cookie = "p-" + c + "=1; " + i + "samesite=Strict; expires=" + m.toGMTString() + "; path=/"
-      }
-    }), 0)
-  }(window, document, "https://permate-tracker.com/get_url")
+  <script id="p-lander-script">
+    !function (e, t, o) {
+      var i = "https:" === e.location.protocol ? "secure; " : "";
+      setTimeout((function () {
+        var r = /[?&]pm_cid(=([^&#]*)|&|#|$)/.exec(e.location.href);
+        if (r && r[2]) var c = r[2], n = t.cookie.match(new RegExp("(^| )p-" + c + "=([^;]+)"));
+        var a = t.cookie.match(/(^| )p-cep=([^;]+)/), p = location.href;
+        if (a && (!c || void 0 === c) && p.indexOf("cep=") < 0) {
+          var f = p.indexOf("?") > -1 ? "&" : "?";
+          p += f + a.pop()
+        }
+        var s = t.createElement("script"), d = t.scripts[0];
+        if (s.defer = !0, s.src = o + (-1 === o.indexOf("?") ? "?" : "&") + "ref=" + encodeURIComponent(t.referrer) + "&location=l&url=" + encodeURIComponent(p) + "&time=" + (new Date).getTime() + (n ? "&cid=no" : ""), d.parentNode.insertBefore(s, d), c) {
+          var m = new Date;
+          m.setTime(m.getTime() + 864e3), t.cookie = "p-" + c + "=1; " + i + "samesite=Strict; expires=" + m.toGMTString() + "; path=/"
+        }
+      }), 0)
+    }(window, document, "https://permate-tracker.com/get_url")
   </script>
   <noscript>
     <link href="https://permate-tracker.com/get_url?location=l&noscript=true&url=" rel="stylesheet"/>

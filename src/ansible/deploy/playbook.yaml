@@ -1,0 +1,75 @@
+- hosts: all
+  name: Deploy applications on Docker compose
+  remote_user: ubuntu
+  become: yes
+  vars_files:
+    - env.yaml
+  vars:
+    docker_username: user_name
+    docker_password: my_password
+  tasks:
+    - name: Create directory lander
+      file:
+        path: /home/ubuntu/lander
+        state: directory
+        owner: ubuntu
+        group: ubuntu
+        mode: "0755"
+    - name: (#27) Copy foder haproxy to EC2
+      copy:
+        src: ../../haproxy
+        dest: /home/ubuntu
+        owner: ubuntu
+        group: ubuntu
+        force: yes
+
+    - name: (#27) Copy foder lander to EC2
+      copy:
+        src: ../../lander
+        dest: /home/ubuntu
+        owner: ubuntu
+        group: ubuntu
+        force: yes
+
+    - name: (#27) Copy foder offer to EC2
+      copy:
+        src: ../../offer
+        dest: /home/ubuntu
+        owner: ubuntu
+        group: ubuntu
+        force: yes
+
+    - name: Login to Docker Registry
+      docker_login:
+        username: "{{ docker_username }}"
+        password: "{{ docker_password }}"
+
+    - name: (#34) Stop container, Remove images, volumes, clear system
+      shell: 'docker kill $(docker ps -aq); docker rm $(docker ps -aq); docker rmi $(docker images -aq); docker volume prune -f; docker system prune --all --force'
+
+    - name: create network haproxy_network
+      shell: 'docker network create permate_network'
+
+    - name: Down Service Lander
+      shell: 'docker compose -f /home/ubuntu/lander/docker-compose.yaml down'
+
+    - name: Build Service Lander
+      shell: 'docker compose -f /home/ubuntu/lander/docker-compose.yaml build'
+
+    - name: Build Service Lander
+      shell: 'docker compose -f /home/ubuntu/lander/docker-compose.yaml up -d'
+
+    - name: Down Service Offer
+      shell: 'docker compose -f /home/ubuntu/offer/docker-compose.yaml down'
+
+    - name: Build Service Offer
+      shell: 'docker compose -f /home/ubuntu/offer/docker-compose.yaml build'
+
+    - name: Run Service Offer
+      shell: 'docker compose -f /home/ubuntu/offer/docker-compose.yaml up -d'
+
+    - name: Down Haproxy
+      shell: 'docker compose -f /home/ubuntu/haproxy/docker-compose.yaml down'
+
+    - name: Run Haproxy
+      shell: 'docker compose -f /home/ubuntu/haproxy/docker-compose.yaml up -d'

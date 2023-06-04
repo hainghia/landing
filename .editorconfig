@@ -9,12 +9,12 @@ insert_final_newline = false
 max_line_length = 120
 tab_width = 4
 
-[*.rs]
-max_line_length = 100
-
 [*.html]
 indent_size = 2
 max_line_length = 300
 
 [*.{yml,yaml}]
 indent_size = 2
+
+[{docker-compose.yml,docker-compose.yaml}]
+indent_size = 4

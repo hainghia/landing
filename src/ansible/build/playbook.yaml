@@ -65,23 +65,23 @@
   tasks:
     - name: (#27) Copy foder haproxy to EC2
       copy:
-        src: ../haproxy
+        src: ../../haproxy
         dest: /home/ubuntu
         owner: ubuntu
         group: ubuntu
         force: yes
 
-    - name: (#27) Copy foder users to EC2
+    - name: (#27) Copy foder lander to EC2
       copy:
-        src: ../users
+        src: ../../lander
         dest: /home/ubuntu
         owner: ubuntu
         group: ubuntu
         force: yes
 
-    - name: (#27) Copy foder web-assembly to EC2
+    - name: (#27) Copy foder offer to EC2
       copy:
-        src: ../web-assembly
+        src: ../../offer
         dest: /home/ubuntu
         owner: ubuntu
         group: ubuntu
@@ -96,16 +96,13 @@
       shell: 'docker kill $(docker ps -aq); docker rm $(docker ps -aq); docker rmi $(docker images -aq); docker volume prune -f; docker system prune --all --force'
 
     - name: create network haproxy_network
-      shell: 'docker network create haproxy_network'
+      shell: 'docker network create permate_network'
 
     - name: Run Service users form GitHub Repository
-      shell: 'docker compose -f /home/ubuntu/users/github/docker-compose.yaml up -d'
+      shell: 'docker compose -f /home/ubuntu/lander/docker-compose.yaml up -d'
 
     - name: Run Service users form GitLab Repository
-      shell: 'docker compose -f /home/ubuntu/users/gitlab/docker-compose.yaml up -d'
-
-    - name: Run Web Assembly
-      shell: 'docker compose -f /home/ubuntu/web-assembly/docker-compose.yaml up -d'
+      shell: 'docker compose -f /home/ubuntu/offer/docker-compose.yaml up -d'
 
     - name: Run Haproxy
       shell: 'docker compose -f /home/ubuntu/haproxy/docker-compose.yaml up -d'

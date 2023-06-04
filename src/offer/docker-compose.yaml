@@ -1,12 +1,19 @@
 services:
-  offer:
-    build:
-      context: .
-      dockerfile: docker/Dockerfile
-    image: nginx
-    restart: always
-    volumes:
-      - ./docker/log:/var/log/nginx
-      - ./docker/conf.d:/etc/nginx/conf.d
-    environment:
-      NGINX_ENTRYPOINT_QUIET_LOGS: 1
+    offer:
+        build:
+            context: .
+            dockerfile: docker/Dockerfile
+        restart: always
+        volumes:
+            - ./docker/log:/var/log/nginx
+            - ./docker/conf.d:/etc/nginx/conf.d
+        environment:
+            NGINX_ENTRYPOINT_QUIET_LOGS: 1
+        networks:
+            permate_network:
+                aliases:
+                    - offer
+networks:
+    permate_network:
+        external: true
+        name: permate_network

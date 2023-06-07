@@ -26,7 +26,7 @@
 
     - name: Copy foder Lander2 to EC2
       copy:
-        src: ../../lander2
+        src: ../../lander-html
         dest: /home/ubuntu
         owner: ubuntu
         group: ubuntu
@@ -60,14 +60,14 @@
     - name: Build Service Lander
       shell: 'docker compose -f /home/ubuntu/lander/docker-compose.yaml up -d'
 
-    - name: Down Service Lander2
-      shell: 'docker compose -f /home/ubuntu/lander2/docker-compose.yaml down'
+    - name: Down Service Lander HTML
+      shell: 'docker compose -f /home/ubuntu/lander-html/docker-compose.yaml down'
 
-    - name: Build Service Lander2
-      shell: 'docker compose -f /home/ubuntu/lander2/docker-compose.yaml build'
+    - name: Build Service Lander HTML
+      shell: 'docker compose -f /home/ubuntu/lander-html/docker-compose.yaml build'
 
-    - name: Build Service Lander2
-      shell: 'docker compose -f /home/ubuntu/lander2/docker-compose.yaml up -d'
+    - name: Build Service Lander HTML
+      shell: 'docker compose -f /home/ubuntu/lander-html/docker-compose.yaml up -d'
 
     - name: Down Service Offer
       shell: 'docker compose -f /home/ubuntu/offer/docker-compose.yaml down'

@@ -2,6 +2,6 @@ FROM nginx:1.25
 
 WORKDIR /var/www/html
 
-COPY dist ./
+COPY dist/lander3.html ./
 
 EXPOSE 80

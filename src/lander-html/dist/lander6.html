@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta http-equiv="delegate-ch" content="sec-ch-ua ; sec-ch-ua-mobile http://localhost:4004; sec-ch-ua-arch http://localhost:4004; sec-ch-ua-model http://localhost:4004; sec-ch-ua-platform http://localhost:4004; sec-ch-ua-platform-version http://localhost:4004; sec-ch-ua-bitness http://localhost:4004; sec-ch-ua-full-version-list http://localhost:4004; sec-ch-ua-full-version http://localhost:4004">
+  <script id="p-lander-script">
+    !function (e, t, o) {
+      var i = "https:" === e.location.protocol ? "secure; " : "";
+      setTimeout((function () {
+        var r = /[?&]pm_cid(=([^&#]*)|&|#|$)/.exec(e.location.href);
+        if (r && r[2]) var c = r[2], n = t.cookie.match(new RegExp("(^| )p-" + c + "=([^;]+)"));
+        var a = t.cookie.match(/(^| )p-cep=([^;]+)/), p = location.href;
+        if (a && (!c || void 0 === c) && p.indexOf("cep=") < 0) {
+          var f = p.indexOf("?") > -1 ? "&" : "?";
+          p += f + a.pop()
+        }
+        var s = t.createElement("script"), d = t.scripts[0];
+        if (s.defer = !0, s.src = o + (-1 === o.indexOf("?") ? "?" : "&") + "ref=" + encodeURIComponent(t.referrer) + "&location=l&url=" + encodeURIComponent(p) + "&time=" + (new Date).getTime() + (n ? "&cid=no" : ""), d.parentNode.insertBefore(s, d), c) {
+          var m = new Date;
+          m.setTime(m.getTime() + 864e3), t.cookie = "p-" + c + "=1; " + i + "samesite=Strict; expires=" + m.toGMTString() + "; path=/"
+        }
+      }), 0)
+    }(window, document, "http://localhost:4004/get_url")
+  </script>
+  <noscript>
+    <link href="http://localhost:4004/get_url?location=l&noscript=true&url=" rel="stylesheet"/>
+  </noscript>
+
+
+</head>
+<body>
+<div class="card container vh-100">
+  <div class="card-body align-content-center d-flex flex-column justify-content-center align-items-center">
+    <h1 class="d-flex text-danger">Lander 6 - có 3 nút CTA</h1>
+    <div class="d-flex">
+      <a class="mx-1 btn btn-danger btn-lg" href="http://localhost:4004/c/l/click/1">Click CTA 1</a>
+      <a class="mx-1 btn btn-info btn-lg" href="http://localhost:4004/c/l/click/2">Click CTA 2</a>
+      <a class="mx-1 btn btn-warning btn-lg" href="http://localhost:4004/c/l/click/3">Click CTA 3</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

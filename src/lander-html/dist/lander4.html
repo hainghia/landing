@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Home</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <meta http-equiv="delegate-ch" content="sec-ch-ua ; sec-ch-ua-mobile https://permate-tracker.com; sec-ch-ua-arch https://permate-tracker.com; sec-ch-ua-model https://permate-tracker.com; sec-ch-ua-platform https://permate-tracker.com; sec-ch-ua-platform-version https://permate-tracker.com; sec-ch-ua-bitness https://permate-tracker.com; sec-ch-ua-full-version-list https://permate-tracker.com; sec-ch-ua-full-version https://permate-tracker.com">
+  <meta http-equiv="delegate-ch" content="sec-ch-ua ; sec-ch-ua-mobile http://localhost:4004; sec-ch-ua-arch http://localhost:4004; sec-ch-ua-model http://localhost:4004; sec-ch-ua-platform http://localhost:4004; sec-ch-ua-platform-version http://localhost:4004; sec-ch-ua-bitness http://localhost:4004; sec-ch-ua-full-version-list http://localhost:4004; sec-ch-ua-full-version http://localhost:4004">
   <script id="p-lander-script">
     !function (e, t, o) {
       var i = "https:" === e.location.protocol ? "secure; " : "";
@@ -22,19 +22,22 @@
           m.setTime(m.getTime() + 864e3), t.cookie = "p-" + c + "=1; " + i + "samesite=Strict; expires=" + m.toGMTString() + "; path=/"
         }
       }), 0)
-    }(window, document, "https://permate-tracker.com/get_url")
+    }(window, document, "http://localhost:4004/get_url")
   </script>
   <noscript>
-    <link href="https://permate-tracker.com/get_url?location=l&noscript=true&url=" rel="stylesheet"/>
+    <link href="http://localhost:4004/get_url?location=l&noscript=true&url=" rel="stylesheet"/>
   </noscript>
+
+
 </head>
 <body>
 <div class="card container vh-100">
   <div class="card-body align-content-center d-flex flex-column justify-content-center align-items-center">
-    <h1 class="d-flex text-info">Home</h1>
+    <h1 class="d-flex text-primary">Lander 4 - có 3 nút CTA</h1>
     <div class="d-flex">
-      <a class="mx-1 btn btn-success btn-lg" href="https://tracking-gateway.qa.permate.com/c/l/1">Click CTA 1</a>
-      <a class="mx-1 btn btn-success btn-lg" href="https://tracking-gateway.qa.permate.com/c/l/2">Click CTA 2</a>
+      <a class="mx-1 btn btn-primary btn-lg" href="http://localhost:4004/c/l/click/1">Click CTA 1</a>
+      <a class="mx-1 btn btn-warning btn-lg" href="http://localhost:4004/c/l/click/2">Click CTA 2</a>
+      <a class="mx-1 btn btn-danger btn-lg" href="http://localhost:4004/c/l/click/3">Click CTA 3</a>
     </div>
   </div>
 </div>

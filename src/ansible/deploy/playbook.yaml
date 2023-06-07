@@ -24,7 +24,7 @@
         group: ubuntu
         force: yes
 
-    - name: Copy foder Lander2 to EC2
+    - name: Copy foder Lander HTML to EC2
       copy:
         src: ../../lander-html
         dest: /home/ubuntu

@@ -10,30 +10,31 @@
   <div class="container text-center align-center">
     <div class="row">
       <div class="col">
-          <a href="https://tracking-gateway.dev.permate.com/i?pm_cid=504bd0d6-79e5-4fdf-8d92-30390baf" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">
+          <a href="#" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">
             <img src="https://picsum.photos/200" class="img-thumbnail" alt="...">
+            <img class="impression" src="https://zzztracking-gateway.dev.permate.com/i?pm_cid=504bd0d6-79e5-4fdf-8d92-30390baf" style="display: none" alt="">
           </a>
       </div>
       <div class="col">
-        <a href="https://tracking-gateway.dev.permate.com/c/l" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">
+        <a href="#" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">
           <img src="https://picsum.photos/200?grayscale" class="img-thumbnail" alt="...">
+          <img class="impression" src="https://zzztracking-gateway.dev.permate.com/i?pm_cid=504bd0d6-79e5-4fdf-8d92-30390baf" style="display: none" alt="">
         </a>
       </div>
       <div class="col">
-        <a href="https://tracking-gateway.dev.permate.com/c/l" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">
+        <a href="#" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">
           <img src="https://picsum.photos/200/?blur" class="img-thumbnail" alt="...">
+          <img class="impression" src="zzzhttps://tracking-gateway.dev.permate.com/i?pm_cid=504bd0d6-79e5-4fdf-8d92-30390baf" style="display: none" alt="">
         </a>
       </div>
     </div>
   </div>
   <code class="position-absolute" id="urlCode" style="display: none; margin-top: 300px"></code>
-
-
 </div>
 
 <script>
   function showUrl(element) {
-    var url = element.getAttribute('href');
+    var url = element.querySelector('.impression').src;
     var codeElement = document.getElementById('urlCode');
     codeElement.innerText = url;
     codeElement.style.display = 'inline-block';

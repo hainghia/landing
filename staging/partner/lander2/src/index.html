@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lander 2</title>
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+  <meta http-equiv="delegate-ch" content="sec-ch-ua ; sec-ch-ua-mobile http://192.168.1.197:8000; sec-ch-ua-arch http://192.168.1.197:8000; sec-ch-ua-model http://192.168.1.197:8000; sec-ch-ua-platform http://192.168.1.197:8000; sec-ch-ua-platform-version http://192.168.1.197:8000; sec-ch-ua-bitness http://192.168.1.197:8000; sec-ch-ua-full-version-list http://192.168.1.197:8000; sec-ch-ua-full-version http://192.168.1.197:8000">
+  <script id="p-lander-script">
+    !function (e, t, o) {
+    var i = "https:" === e.location.protocol ? "secure; " : "";
+    setTimeout((function () {
+      var c = "", r = /[?&]pm_cid(=([^&#]*)|&|#|$)/.exec(e.location.href);
+      if (r && r[2]) {
+        var n = r[2], p = /[?&]click_id(=([^&#]*)|&|#|$)/.exec(e.location.href);
+        if (p && p[2]) {
+          var a = p[2];
+          c = t.cookie.match(new RegExp("(^| )p-" + n + a + "=([^;]+)"))
+        } else {
+          n = r[2];
+          c = t.cookie.match(new RegExp("(^| )p-" + n + "=([^;]+)"))
+        }
+      }
+      var s = t.cookie.match(/(^| )pm_cep_l=([^;]+)/), m = location.href;
+      if (s && (!n || void 0 === n)) {
+        var f = m.indexOf("?") > -1 ? "&" : "?";
+        m += f + "pm_cep=" + s.pop(), c = s.pop()
+      }
+      var l = t.createElement("script"), d = t.scripts[0];
+      if (l.defer = !0, l.src = o + (-1 === o.indexOf("?") ? "?" : "&") + "ref=" + encodeURIComponent(t.referrer) + "&location=l&url=" + encodeURIComponent(m) + "&time=" + (new Date).getTime() + (c ? "&cid=no" : ""), d.parentNode.insertBefore(l, d), n) {
+        var h = new Date;
+        h.setTime(h.getTime() + 864e3), t.cookie = a ? "p-" + n + a + "=1; " + i + "samesite=Strict; expires=" + h.toGMTString() + "; path=/" : "p-" + n + "=1; " + i + "samesite=Strict; expires=" + h.toGMTString() + "; path=/"
+      }
+    }), 0)
+  }(window, document, "http://192.168.1.197:8000/get_url")
+  </script>
+  <noscript>
+    <link href="http://192.168.1.197:8000/get_url?location=l&noscript=true&url=" rel="stylesheet"/>
+  </noscript>
+</head>
+<body>
+<div class="card container vh-100">
+  <div class="card-body align-content-center d-flex flex-column justify-content-center align-items-center">
+    <div class="title alert alert-primary position-absolute" id="urlCode" style="display: none; margin-top: -200px"></div>
+    <h1 class="d-flex text-success">Lander 2 - có 1 nut CTA</h1>
+    <div class="d-flex">
+      <a class="mx-1 btn btn-success btn-lg" href="http://192.168.1.197:8000/c/l" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">Click CTA</a>
+    </div>
+  </div>
+</div>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/custom.js"></script>
+</body>
+</html>

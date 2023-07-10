@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Offer 3</title>
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+  <meta http-equiv="delegate-ch" content="sec-ch-ua ; sec-ch-ua-mobile http://192.168.1.197:8000; sec-ch-ua-arch http://192.168.1.197:8000; sec-ch-ua-model http://192.168.1.197:8000; sec-ch-ua-platform http://192.168.1.197:8000; sec-ch-ua-platform-version http://192.168.1.197:8000; sec-ch-ua-bitness http://192.168.1.197:8000; sec-ch-ua-full-version-list http://192.168.1.197:8000; sec-ch-ua-full-version http://192.168.1.197:8000">
+  <script id="p-offer-script">
+    !function (e, o, t) {
+      var i = "https:" === e.location.protocol ? "secure; " : "";
+      setTimeout((function () {
+        var r = /[?&]pm_cid(=([^&#]*)|&|#|$)/.exec(e.location.href);
+        if (r && r[2]) var c = r[2], n = o.cookie.match(new RegExp("(^| )p-" + c + "=([^;]+)"));
+        var a = o.cookie.match(/(^| )pm_cep=([^;]+)/), p = location.href;
+        if (a && (!c || void 0 === c)) {
+          var f = p.indexOf("?") > -1 ? "&" : "?";
+          p += f + "pm_cep=" + a.pop()
+        }
+        var m = o.createElement("script"), s = o.scripts[0];
+        if (m.defer = !0, m.src = t + (-1 === t.indexOf("?") ? "?" : "&") + "ref=" + encodeURIComponent(o.referrer) + "&location=o&url=" + encodeURIComponent(p) + "&time=" + (new Date).getTime() + (n ? "&cid=no" : ""), s.parentNode.insertBefore(m, s), c) {
+          var d = new Date;
+          d.setTime(d.getTime() + 864e3), o.cookie = "p-" + c + "=1; " + i + "samesite=Strict; expires=" + d.toGMTString() + "; path=/"
+        }
+      }), 0)
+    }
+    (window, document, "http://192.168.1.197:8000/get_url")
+  </script>
+  <noscript>
+    <link href="http://192.168.1.197:8000?location=o&noscript=true&url=" rel="stylesheet"/>
+  </noscript>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand offer-custom" href="/">Offer</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link offer-custom active" aria-current="page" href="index.html" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link offer-custom" href="button.html" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">Button</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link offer-custom" href="iframe.html" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">Iframe</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link offer-custom" href="thank-you.html" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">Thank You</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="card container">
+  <div class="card-header" style="height: 50px">
+    <div class="card-title text-center text-danger" id="urlCode" style="display: none; font-size: 18px"></div>
+  </div>
+  <div class="card-body align-content-center d-flex flex-column justify-content-center align-items-center">
+    <div class="jumbotron">
+      <h1 class="display-1 offer-custom">Offer 3 - Button</h1>
+      <p class="lead offer-custom">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+      <hr class="my-4">
+
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="#" role="button" id="pm_button_1" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">Button 1</a>
+        <a class="btn btn-secondary btn-lg" href="#" role="button" id="pm_button_2" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">Button 2</a>
+        <a class="btn btn-success btn-lg" href="#" role="button" id="pm_button_3" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">Button 3</a>
+        <a class="btn btn-warning btn-lg" href="#" role="button" id="pm_button_4" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">Button 4</a>
+        <a class="btn btn-danger btn-lg" href="#" role="button" id="pm_button_5" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">Button 5</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/custom.js"></script>
+</body>
+</html>

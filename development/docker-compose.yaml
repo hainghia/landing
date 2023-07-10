@@ -1,0 +1,228 @@
+services:
+    lander1:
+        build:
+            context: ./partner/lander1
+            dockerfile: docker/Dockerfile
+        restart: always
+        volumes:
+            - ./partner/lander1/docker/log:/var/log/nginx
+            - ./partner/lander1/docker/conf.d:/etc/nginx/conf.d
+            - ./partner/lander1/src:/var/www/html
+        environment:
+            NGINX_ENTRYPOINT_QUIET_LOGS: 1
+        networks:
+            permate_network:
+                aliases:
+                    - lander1
+
+    lander2:
+        build:
+            context: ./partner/lander2
+            dockerfile: docker/Dockerfile
+        restart: always
+        volumes:
+            - ./partner/lander2/docker/log:/var/log/nginx
+            - ./partner/lander2/docker/conf.d:/etc/nginx/conf.d
+            - ./partner/lander2/src:/var/www/html
+        environment:
+            NGINX_ENTRYPOINT_QUIET_LOGS: 1
+        networks:
+            permate_network:
+                aliases:
+                    - lander2
+
+    lander3:
+        build:
+            context: ./partner/lander3
+            dockerfile: docker/Dockerfile
+        restart: always
+        volumes:
+            - ./partner/lander3/docker/log:/var/log/nginx
+            - ./partner/lander3/docker/conf.d:/etc/nginx/conf.d
+            - ./partner/lander3/src:/var/www/html
+        environment:
+            NGINX_ENTRYPOINT_QUIET_LOGS: 1
+        networks:
+            permate_network:
+                aliases:
+                    - lander3
+
+    lander4:
+        build:
+            context: ./partner/lander4
+            dockerfile: docker/Dockerfile
+        restart: always
+        volumes:
+            - ./partner/lander4/docker/log:/var/log/nginx
+            - ./partner/lander4/docker/conf.d:/etc/nginx/conf.d
+            - ./partner/lander4/src:/var/www/html
+        environment:
+            NGINX_ENTRYPOINT_QUIET_LOGS: 1
+        networks:
+            permate_network:
+                aliases:
+                    - lander4
+
+    lander5:
+        build:
+            context: ./partner/lander5
+            dockerfile: docker/Dockerfile
+        restart: always
+        volumes:
+            - ./partner/lander5/docker/log:/var/log/nginx
+            - ./partner/lander5/docker/conf.d:/etc/nginx/conf.d
+            - ./partner/lander5/src:/var/www/html
+        environment:
+            NGINX_ENTRYPOINT_QUIET_LOGS: 1
+        networks:
+            permate_network:
+                aliases:
+                    - lander5
+
+    lander6:
+        build:
+            context: ./partner/lander6
+            dockerfile: docker/Dockerfile
+        restart: always
+        volumes:
+            - ./partner/lander6/docker/log:/var/log/nginx
+            - ./partner/lander6/docker/conf.d:/etc/nginx/conf.d
+            - ./partner/lander6/src:/var/www/html
+        environment:
+            NGINX_ENTRYPOINT_QUIET_LOGS: 1
+        networks:
+            permate_network:
+                aliases:
+                    - lander6
+
+    lander7:
+        build:
+            context: ./partner/lander7
+            dockerfile: docker/Dockerfile
+        restart: always
+        volumes:
+            - ./partner/lander7/docker/log:/var/log/nginx
+            - ./partner/lander7/docker/conf.d:/etc/nginx/conf.d
+            - ./partner/lander7/src:/var/www/html
+        environment:
+            NGINX_ENTRYPOINT_QUIET_LOGS: 1
+        networks:
+            permate_network:
+                aliases:
+                    - lander7
+
+    offer1:
+        build:
+            context: ./offer/offer1
+            dockerfile: docker/Dockerfile
+        restart: always
+        volumes:
+            - ./offer/offer1/docker/log:/var/log/nginx
+            - ./offer/offer1/docker/conf.d:/etc/nginx/conf.d
+            - ./offer/offer1/src:/var/www/html
+        environment:
+            NGINX_ENTRYPOINT_QUIET_LOGS: 1
+        networks:
+            permate_network:
+                aliases:
+                    - offer1
+
+    offer2:
+        build:
+            context: ./offer/offer2
+            dockerfile: docker/Dockerfile
+        restart: always
+        volumes:
+            - ./offer/offer2/docker/log:/var/log/nginx
+            - ./offer/offer2/docker/conf.d:/etc/nginx/conf.d
+            - ./offer/offer2/src:/var/www/html
+        environment:
+            NGINX_ENTRYPOINT_QUIET_LOGS: 1
+        networks:
+            permate_network:
+                aliases:
+                    - offer2
+
+    offer3:
+        build:
+            context: ./offer/offer3
+            dockerfile: docker/Dockerfile
+        restart: always
+        volumes:
+            - ./offer/offer3/docker/log:/var/log/nginx
+            - ./offer/offer3/docker/conf.d:/etc/nginx/conf.d
+            - ./offer/offer3/src:/var/www/html
+        environment:
+            NGINX_ENTRYPOINT_QUIET_LOGS: 1
+        networks:
+            permate_network:
+                aliases:
+                    - offer3
+
+    offer4:
+        build:
+            context: ./offer/offer4
+            dockerfile: docker/Dockerfile
+        restart: always
+        volumes:
+            - ./offer/offer4/docker/log:/var/log/nginx
+            - ./offer/offer4/docker/conf.d:/etc/nginx/conf.d
+            - ./offer/offer4/src:/var/www/html
+        environment:
+            NGINX_ENTRYPOINT_QUIET_LOGS: 1
+        networks:
+            permate_network:
+                aliases:
+                    - offer4
+
+    impression:
+        build:
+            context: ./impression
+            dockerfile: docker/Dockerfile
+        restart: always
+        volumes:
+            - ./impression/docker/log:/var/log/nginx
+            - ./impression/docker/conf.d:/etc/nginx/conf.d
+            - ./impression/src:/var/www/html
+        environment:
+            NGINX_ENTRYPOINT_QUIET_LOGS: 1
+        networks:
+            permate_network:
+                aliases:
+                    - impression
+    saas:
+        build:
+            context: ./saas
+            dockerfile: docker/Dockerfile
+        restart: always
+        volumes:
+            - ./saas/docker/log:/var/log/nginx
+            - ./saas/docker/conf.d:/etc/nginx/conf.d
+            - ./saas/src:/var/www/html
+        environment:
+            NGINX_ENTRYPOINT_QUIET_LOGS: 1
+        networks:
+            permate_network:
+                aliases:
+                    - saas
+
+    paused:
+        build:
+            context: ./paused
+            dockerfile: docker/Dockerfile
+        restart: always
+        volumes:
+            - ./paused/docker/log:/var/log/nginx
+            - ./paused/docker/conf.d:/etc/nginx/conf.d
+            - ./paused/src:/var/www/html
+        environment:
+            NGINX_ENTRYPOINT_QUIET_LOGS: 1
+        networks:
+            permate_network:
+                aliases:
+                    - paused
+
+networks:
+    permate_network:
+        external: true
+        name: permate_network

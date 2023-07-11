@@ -1,17 +1,4 @@
 services:
-    certbot:
-        image: certbot/certbot
-        command: certonly --webroot --webroot-path=/var/www/html -d lander1-1cta.kukun.site
-        volumes:
-            - ./partner/lander1/src:/var/www/html
-            - ./certbot/conf:/etc/letsencrypt
-            - ./certbot/www:/var/www/certbot
-        depends_on:
-            - lander1
-        networks:
-            permate_network:
-                aliases:
-                    - certbot
     lander1:
         build:
             context: ./partner/lander1

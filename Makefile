@@ -16,3 +16,8 @@ deploy:
 
 	docker compose -f haproxy/docker-compose.yaml down
 	docker compose -f haproxy/docker-compose.yaml up -d
+
+.PHONY: ec2_build
+ec2_build:
+	ansible all --module-name ansible.builtin.ping --user ubuntu --inventory ansible/setup/inventory.yaml
+	ansible-playbook --inventory ansible/setup/inventory.yaml ansible/setup/playbook.yaml

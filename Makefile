@@ -21,3 +21,8 @@ deploy:
 ec2_build:
 	ansible all --module-name ansible.builtin.ping --user ubuntu --inventory ansible/setup/inventory.yaml
 	ansible-playbook --inventory ansible/setup/inventory.yaml ansible/setup/playbook.yaml
+
+.PHONY: ec2_deploy
+ec2_deploy:
+	ansible all --module-name ansible.builtin.ping --user ubuntu --inventory ansible/deploy/inventory.yaml
+	ansible-playbook --inventory ansible/setup/inventory.yaml ansible/deploy/playbook.yaml

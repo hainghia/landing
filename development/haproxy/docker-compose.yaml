@@ -6,8 +6,6 @@ services:
             - "80:80"
         volumes:
             - ./config/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
-            - ./certbot/conf:/etc/letsencrypt
-            - ./certbot/www:/var/www/certbot
         networks:
             permate_network:
         healthcheck:
@@ -15,19 +13,6 @@ services:
             interval: 2s
             timeout: 5s
             retries: 2
-
-    certbot:
-        image: certbot/certbot
-        command: certonly --webroot --webroot-path=/var/www/certbot -d lander1-1cta.kukun.site
-        volumes:
-            - ./certbot/conf:/etc/letsencrypt
-            - ./certbot/www:/var/www/certbot
-        depends_on:
-            - haproxy
-        networks:
-            permate_network:
-                aliases:
-                    - certbot
 
 networks:
     permate_network:

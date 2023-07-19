@@ -1,88 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <title>Offer 1</title>
-  <link href="assets/css/bootstrap.css" rel="stylesheet">
-  <link href="assets/css/main.css" rel="stylesheet">
-  <meta http-equiv="delegate-ch" content="sec-ch-ua ; sec-ch-ua-mobile https://tracking-gateway.qa.permate.com; sec-ch-ua-arch https://tracking-gateway.qa.permate.com; sec-ch-ua-model https://tracking-gateway.qa.permate.com; sec-ch-ua-platform https://tracking-gateway.qa.permate.com; sec-ch-ua-platform-version https://tracking-gateway.qa.permate.com; sec-ch-ua-bitness https://tracking-gateway.qa.permate.com; sec-ch-ua-full-version-list https://tracking-gateway.qa.permate.com; sec-ch-ua-full-version https://tracking-gateway.qa.permate.com">
-  <script id="p-offer-script">
-    !function (e, t, o) {
-      var i = "https:" === e.location.protocol ? "secure; " : "";
-      setTimeout((function () {
-        var c = "", r = /[?&]pm_cid(=([^&#]*)|&|#|$)/.exec(e.location.href);
-        if (r && r[2]) {
-          var n = r[2], p = /[?&]click_id(=([^&#]*)|&|#|$)/.exec(e.location.href);
-          if (p && p[2]) {
-            var a = p[2];
-            c = t.cookie.match(new RegExp("(^| )p-" + n + a + "=([^;]+)"))
-          } else {
-            n = r[2];
-            c = t.cookie.match(new RegExp("(^| )p-" + n + "=([^;]+)"))
-          }
-        }
-        var m = t.cookie.match(/(^| )pm_cep_o=([^;]+)/), s = location.href;
-        if (m && (!n || void 0 === n)) {
-          var f = s.indexOf("?") > -1 ? "&" : "?";
-          s += f + "pm_cep=" + m.pop(), c = m.pop()
-        }
-        var l = t.createElement("script"), d = t.scripts[0];
-        if (l.defer = !0, l.src = o + (-1 === o.indexOf("?") ? "?" : "&") + "ref=" + encodeURIComponent(t.referrer) + "&location=o&url=" + encodeURIComponent(s) + "&time=" + (new Date).getTime() + (c ? "&cid=no" : ""), d.parentNode.insertBefore(l, d), n) {
-          var h = new Date;
-          h.setTime(h.getTime() + 864e3), t.cookie = a ? "p-" + n + a + "=1; " + i + "samesite=Strict; expires=" + h.toGMTString() + "; path=/" : "p-" + n + "=1; " + i + "samesite=Strict; expires=" + h.toGMTString() + "; path=/"
-        }
-      }), 0)
-    }(window, document, "https://tracking-gateway.qa.permate.com/get_url")
-  </script>
-  <noscript>
-    <link href="https://tracking-gateway.qa.permate.com/get_url?location=o&noscript=true&url=" rel="stylesheet"/>
-  </noscript>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 
+  <title>
+    Permate
+  </title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand offer-custom" href="/">Offer</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link offer-custom active" aria-current="page" href="index.html" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link offer-custom" href="button.html" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">Button</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link offer-custom" href="iframe.html" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">Iframe</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link offer-custom" href="thank-you.html" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">Thank You</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <nav class="navbar navbar-expand-lg custom_nav-container ">
+        <a class="navbar-brand" href="index.html">
+          <span>
+            Permate <br>
+          </span>
+        </a>
+      </nav>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
 
-<div class="card container">
-  <div class="card-header" style="height: 50px">
-    <div class="card-title text-center text-danger" id="urlCode" style="display: none; font-size: 18px"></div>
-  </div>
-  <div class="card-body align-content-center d-flex flex-column justify-content-center align-items-center">
-    <div class="jumbotron">
-      <h1 class="display-1 offer-custom">Offer 1!</h1>
-      <p class="lead offer-custom">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-      <hr class="my-4">
-      <p class="offer-custom">It uses utility classes for typography and spacing to space content out within the larger container.</p>
-      <p class="lead">
-        <a class="btn btn-primary btn-lg" href="http://kukun.site" role="button">Impression</a>
-      </p>
-    </div>
-  </div>
-</div>
+    <section class="slider_section">
+      <div class="slider_container">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-7">
+                    <div class="detail-box">
+                      <h1>
+                        Welcome To Tracker <br>
+                        Presentation
+                      </h1>
+                      <p>
+                        Sequi perspiciatis nulla reiciendis, rem, tenetur impedit, eveniet non necessitatibus error distinctio mollitia suscipit. Nostrum fugit doloribus consequatur distinctio esse, possimus maiores aliquid repellat beatae cum, perspiciatis enim, accusantium perferendis.
+                      </p>
+                      <a href="">
+                        Offer 1
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-md-5 ">
+                    <div class="img-box">
+                      <img src="images/never.jpg" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item ">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-7">
+                    <div class="detail-box">
+                      <h1>
+                        Welcome To Tracker <br>
+                        Presentation
+                      </h1>
+                      <p>
+                        Sequi perspiciatis nulla reiciendis, rem, tenetur impedit, eveniet non necessitatibus error distinctio mollitia suscipit. Nostrum fugit doloribus consequatur distinctio esse, possimus maiores aliquid repellat beatae cum, perspiciatis enim, accusantium perferendis.
+                      </p>
+                      <a href="">
+                        Offer 2
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-md-5 ">
+                    <div class="img-box">
+                      <img src="images/never.jpg" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel_btn-box">
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <i class="fa fa-arrow-left" aria-hidden="true"></i>
+              <span class="sr-only">Previous</span>
+            </a>
+            <img src="images/line.png" alt="" />
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <i class="fa fa-arrow-right" aria-hidden="true"></i>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/custom.js"></script>
+    <!-- end slider section -->
+
+  </div>
+
+
+  <!-- end info section -->
+
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+
 </body>
+
 </html>

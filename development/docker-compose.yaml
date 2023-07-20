@@ -207,38 +207,6 @@ services:
                 aliases:
                     - dev_offer4
 
-    dev_offer5:
-        build:
-            context: ./offer/offer5
-            dockerfile: docker/Dockerfile
-        restart: always
-        volumes:
-            - ./offer/offer5/docker/log:/var/log/nginx
-            - ./offer/offer5/docker/conf.d:/etc/nginx/conf.d
-            - ./offer/offer5/src:/var/www/html
-        environment:
-            NGINX_ENTRYPOINT_QUIET_LOGS: 1
-        networks:
-            permate_network:
-                aliases:
-                    - dev_offer5
-
-    dev_offer6:
-        build:
-            context: ./offer/offer6
-            dockerfile: docker/Dockerfile
-        restart: always
-        volumes:
-            - ./offer/offer6/docker/log:/var/log/nginx
-            - ./offer/offer6/docker/conf.d:/etc/nginx/conf.d
-            - ./offer/offer6/src:/var/www/html
-        environment:
-            NGINX_ENTRYPOINT_QUIET_LOGS: 1
-        networks:
-            permate_network:
-                aliases:
-                    - dev_offer6
-
     impression:
         build:
             context: ./impression

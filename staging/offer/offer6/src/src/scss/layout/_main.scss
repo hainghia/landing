@@ -3,7 +3,7 @@
 }
 
 .body-wrap {
-    background: color(bg, 1);
+    background: color(bg, 2);
     overflow: hidden;
     /* Sticky footer */
     display: flex;
@@ -15,6 +15,7 @@
     max-width: 1440px;
     margin: 0 auto;
     @include shadow;
+    mix-blend-mode: normal;
 }
 
 main {

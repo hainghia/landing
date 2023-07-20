@@ -1,5 +1,5 @@
 services:
-    lander1:
+    dev_lander1:
         build:
             context: ./partner/lander1
             dockerfile: docker/Dockerfile
@@ -13,9 +13,9 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - lander1
+                    - dev_lander1
 
-    lander2:
+    dev_lander2:
         build:
             context: ./partner/lander2
             dockerfile: docker/Dockerfile
@@ -29,9 +29,9 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - lander2
+                    - dev_lander2
 
-    lander3:
+    dev_lander3:
         build:
             context: ./partner/lander3
             dockerfile: docker/Dockerfile
@@ -45,9 +45,9 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - lander3
+                    - dev_lander3
 
-    lander4:
+    dev_lander4:
         build:
             context: ./partner/lander4
             dockerfile: docker/Dockerfile
@@ -61,9 +61,9 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - lander4
+                    - dev_lander4
 
-    lander5:
+    dev_lander5:
         build:
             context: ./partner/lander5
             dockerfile: docker/Dockerfile
@@ -77,9 +77,9 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - lander5
+                    - dev_lander5
 
-    lander6:
+    dev_lander6:
         build:
             context: ./partner/lander6
             dockerfile: docker/Dockerfile
@@ -93,9 +93,9 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - lander6
+                    - dev_lander6
 
-    lander7:
+    dev_lander7:
         build:
             context: ./partner/lander7
             dockerfile: docker/Dockerfile
@@ -109,9 +109,41 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - lander7
+                    - dev_lander7
 
-    offer1:
+    dev_lander8:
+        build:
+            context: ./partner/lander8
+            dockerfile: docker/Dockerfile
+        restart: always
+        volumes:
+            - ./partner/lander8/docker/log:/var/log/nginx
+            - ./partner/lander8/docker/conf.d:/etc/nginx/conf.d
+            - ./partner/lander8/src:/var/www/html
+        environment:
+            NGINX_ENTRYPOINT_QUIET_LOGS: 1
+        networks:
+            permate_network:
+                aliases:
+                    - dev_lander8
+
+    dev_lander9:
+        build:
+            context: ./partner/lander9
+            dockerfile: docker/Dockerfile
+        restart: always
+        volumes:
+            - ./partner/lander9/docker/log:/var/log/nginx
+            - ./partner/lander9/docker/conf.d:/etc/nginx/conf.d
+            - ./partner/lander9/src:/var/www/html
+        environment:
+            NGINX_ENTRYPOINT_QUIET_LOGS: 1
+        networks:
+            permate_network:
+                aliases:
+                    - dev_lander9
+
+    dev_offer1:
         build:
             context: ./offer/offer1
             dockerfile: docker/Dockerfile
@@ -125,9 +157,9 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - offer1
+                    - dev_offer1
 
-    offer2:
+    dev_offer2:
         build:
             context: ./offer/offer2
             dockerfile: docker/Dockerfile
@@ -141,9 +173,9 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - offer2
+                    - dev_offer2
 
-    offer3:
+    dev_offer3:
         build:
             context: ./offer/offer3
             dockerfile: docker/Dockerfile
@@ -157,9 +189,9 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - offer3
+                    - dev_offer3
 
-    offer4:
+    dev_offer4:
         build:
             context: ./offer/offer4
             dockerfile: docker/Dockerfile
@@ -173,7 +205,39 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - offer4
+                    - dev_offer4
+
+    dev_offer5:
+        build:
+            context: ./offer/offer5
+            dockerfile: docker/Dockerfile
+        restart: always
+        volumes:
+            - ./offer/offer5/docker/log:/var/log/nginx
+            - ./offer/offer5/docker/conf.d:/etc/nginx/conf.d
+            - ./offer/offer5/src:/var/www/html
+        environment:
+            NGINX_ENTRYPOINT_QUIET_LOGS: 1
+        networks:
+            permate_network:
+                aliases:
+                    - dev_offer5
+
+    dev_offer6:
+        build:
+            context: ./offer/offer6
+            dockerfile: docker/Dockerfile
+        restart: always
+        volumes:
+            - ./offer/offer6/docker/log:/var/log/nginx
+            - ./offer/offer6/docker/conf.d:/etc/nginx/conf.d
+            - ./offer/offer6/src:/var/www/html
+        environment:
+            NGINX_ENTRYPOINT_QUIET_LOGS: 1
+        networks:
+            permate_network:
+                aliases:
+                    - dev_offer6
 
     impression:
         build:

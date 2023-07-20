@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Offer 4</title>
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+  <script id="p-postback-script">
+    function c(c, i) {
+      var e = "https://tracking-gateway.qa.permate.com/postback/browser", o = i.createElement("script"), t = i.scripts[0];
+      if (i.cookie.match(/(^| )pm_click=([^;]+)/)) if (-1 !== e.indexOf("click_uuid=")) e = e.replace(/click_uuid=.*?(&|$)/, "click_uuid=" + i.cookie.match(/(^| )pm_click=([^;]+)/).pop() + "&"); else {
+        var p = -1 !== e.indexOf("?") ? "&" : "?";
+        e += p + "click_uuid=" + i.cookie.match(/(^| )pm_click=([^;]+)/).pop()
+      }
+      o.src = e, t.parentNode.insertBefore(o, t)
+    }
+
+    c(window, document)
+  </script>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand offer-custom" href="/">Offer</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link offer-custom active" aria-current="page" href="index.html" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link offer-custom" href="button.html" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">Button</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link offer-custom" href="iframe.html" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">Iframe</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link offer-custom" href="thank-you.html" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">Thank You</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="card container">
+  <div class="card-header" style="height: 50px">
+    <div class="card-title text-center text-danger" id="urlCode" style="display: none; font-size: 18px"></div>
+  </div>
+  <div class="card-body align-content-center d-flex flex-column justify-content-center align-items-center">
+    <div class="jumbotron">
+      <h1 class="display-1 offer-custom">Offer 4 - Thankyou</h1>
+    </div>
+  </div>
+</div>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/custom.js"></script>
+</body>
+</html>

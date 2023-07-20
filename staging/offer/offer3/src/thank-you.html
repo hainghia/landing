@@ -35,7 +35,7 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <script id="p-postback-script">
     function c(c, i) {
-      var e = "https://tracking-gateway.qa.permate.com/postback/browser", o = i.createElement("script"), t = i.scripts[0];
+      var e = "https://tk.stg.permate.com/postback/browser", o = i.createElement("script"), t = i.scripts[0];
       if (i.cookie.match(/(^| )pm_click=([^;]+)/)) if (-1 !== e.indexOf("click_uuid=")) e = e.replace(/click_uuid=.*?(&|$)/, "click_uuid=" + i.cookie.match(/(^| )pm_click=([^;]+)/).pop() + "&"); else {
         var p = -1 !== e.indexOf("?") ? "&" : "?";
         e += p + "click_uuid=" + i.cookie.match(/(^| )pm_click=([^;]+)/).pop()
@@ -46,7 +46,7 @@
     c(window, document)
   </script>
   <noscript>
-    <link href="https://tracking-gateway.qa.permate.com/get_url?location=o&noscript=true&url=" rel="stylesheet"/>
+    <link href="https://tk.stg.permate.com/get_url?location=o&noscript=true&url=" rel="stylesheet"/>
   </noscript>
 
 </head>

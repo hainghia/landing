@@ -11,7 +11,7 @@
 	<script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 	<script id="p-postback-script">
 		function c(c, i) {
-			var e = "https://tracking-gateway.qa.permate.com/postback/browser", o = i.createElement("script"), t = i.scripts[0];
+			var e = "https://tk.stg.permate.com/postback/browser", o = i.createElement("script"), t = i.scripts[0];
 			if (i.cookie.match(/(^| )pm_click=([^;]+)/)) if (-1 !== e.indexOf("click_uuid=")) e = e.replace(/click_uuid=.*?(&|$)/, "click_uuid=" + i.cookie.match(/(^| )pm_click=([^;]+)/).pop() + "&"); else {
 				var p = -1 !== e.indexOf("?") ? "&" : "?";
 				e += p + "click_uuid=" + i.cookie.match(/(^| )pm_click=([^;]+)/).pop()

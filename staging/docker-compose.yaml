@@ -1,5 +1,5 @@
 services:
-    qa_lander1:
+    stg_lander1:
         build:
             context: ./partner/lander1
             dockerfile: docker/Dockerfile
@@ -13,9 +13,9 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - qa_lander1
+                    - stg_lander1
 
-    qa_lander2:
+    stg_lander2:
         build:
             context: ./partner/lander2
             dockerfile: docker/Dockerfile
@@ -29,9 +29,9 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - qa_lander2
+                    - stg_lander2
 
-    qa_lander3:
+    stg_lander3:
         build:
             context: ./partner/lander3
             dockerfile: docker/Dockerfile
@@ -45,9 +45,9 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - qa_lander3
+                    - stg_lander3
 
-    qa_lander4:
+    stg_lander4:
         build:
             context: ./partner/lander4
             dockerfile: docker/Dockerfile
@@ -61,9 +61,9 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - qa_lander4
+                    - stg_lander4
 
-    qa_lander5:
+    stg_lander5:
         build:
             context: ./partner/lander5
             dockerfile: docker/Dockerfile
@@ -77,9 +77,9 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - qa_lander5
+                    - stg_lander5
 
-    qa_lander6:
+    stg_lander6:
         build:
             context: ./partner/lander6
             dockerfile: docker/Dockerfile
@@ -93,9 +93,9 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - qa_lander6
+                    - stg_lander6
 
-    qa_lander7:
+    stg_lander7:
         build:
             context: ./partner/lander7
             dockerfile: docker/Dockerfile
@@ -109,9 +109,9 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - qa_lander7
+                    - stg_lander7
 
-    qa_lander8:
+    stg_lander8:
         build:
             context: ./partner/lander8
             dockerfile: docker/Dockerfile
@@ -125,9 +125,9 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - qa_lander8
+                    - stg_lander8
 
-    qa_lander9:
+    stg_lander9:
         build:
             context: ./partner/lander9
             dockerfile: docker/Dockerfile
@@ -141,9 +141,9 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - qa_lander9
+                    - stg_lander9
 
-    qa_offer1:
+    stg_offer1:
         build:
             context: ./offer/offer1
             dockerfile: docker/Dockerfile
@@ -157,9 +157,9 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - qa_offer1
+                    - stg_offer1
 
-    qa_offer2:
+    stg_offer2:
         build:
             context: ./offer/offer2
             dockerfile: docker/Dockerfile
@@ -173,9 +173,9 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - qa_offer2
+                    - stg_offer2
 
-    qa_offer3:
+    stg_offer3:
         build:
             context: ./offer/offer3
             dockerfile: docker/Dockerfile
@@ -189,9 +189,9 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - qa_offer3
+                    - stg_offer3
 
-    qa_offer4:
+    stg_offer4:
         build:
             context: ./offer/offer4
             dockerfile: docker/Dockerfile
@@ -205,9 +205,9 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - qa_offer4
+                    - stg_offer4
 
-    qa_offer5:
+    stg_offer5:
         build:
             context: ./offer/offer5
             dockerfile: docker/Dockerfile
@@ -221,9 +221,9 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - qa_offer5
+                    - stg_offer5
 
-    qa_offer6:
+    stg_offer6:
         build:
             context: ./offer/offer6
             dockerfile: docker/Dockerfile
@@ -237,23 +237,8 @@ services:
         networks:
             permate_network:
                 aliases:
-                    - qa_offer6
+                    - stg_offer6
 
-    qa_impression:
-        build:
-            context: ./impression
-            dockerfile: docker/Dockerfile
-        restart: always
-        volumes:
-            - ./impression/docker/log:/var/log/nginx
-            - ./impression/docker/conf.d:/etc/nginx/conf.d
-            - ./impression/src:/var/www/html
-        environment:
-            NGINX_ENTRYPOINT_QUIET_LOGS: 1
-        networks:
-            permate_network:
-                aliases:
-                    - qa_impression
 networks:
     permate_network:
         external: true

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Offer 4</title>
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+  <meta content="sec-ch-ua ; sec-ch-ua-mobile https://tracking-gateway.qa.permate.com; sec-ch-ua-arch https://tracking-gateway.qa.permate.com; sec-ch-ua-model https://tracking-gateway.qa.permate.com; sec-ch-ua-platform https://tracking-gateway.qa.permate.com; sec-ch-ua-platform-version https://tracking-gateway.qa.permate.com; sec-ch-ua-bitness https://tracking-gateway.qa.permate.com; sec-ch-ua-full-version-list https://tracking-gateway.qa.permate.com; sec-ch-ua-full-version https://tracking-gateway.qa.permate.com" http-equiv="delegate-ch">
+  <script id="p-offer-script">
+    !function (e, o, t) {
+      var i = "https:" === e.location.protocol ? "secure; " : "";
+      setTimeout((function () {
+        var c = "", r = "", n = /[?&]pm_cid(=([^&#]*)|&|#|$)/.exec(e.location.href);
+        if (n && n[2]) {
+          var p = n[2], a = /[?&]click_id(=([^&#]*)|&|#|$)/.exec(e.location.href);
+          if (a && a[2]) {
+            var f = a[2];
+            c = o.cookie.match(new RegExp("(^| )p-" + p + f + "=([^;]+)"))
+          } else {
+            p = n[2];
+            c = o.cookie.match(new RegExp("(^| )p-" + p + "=([^;]+)")), r = o.cookie.match(/(^| )pm_click=([^;]+)/)
+          }
+        }
+        var m = o.cookie.match(/(^| )pm_cep_o=([^;]+)/), s = location.href;
+        if (!m || p && void 0 !== p) {
+          if (r) {
+            l = s.indexOf("?") > -1 ? "&" : "?";
+            s += l + "click_id=" + r.pop()
+          }
+        } else {
+          var l = s.indexOf("?") > -1 ? "&" : "?";
+          s += l + "pm_cep=" + m.pop(), c = m.pop()
+        }
+        var d = o.createElement("script"), h = o.scripts[0];
+        if (d.defer = !0, d.src = t + (-1 === t.indexOf("?") ? "?" : "&") + "ref=" + encodeURIComponent(o.referrer) + "&location=o&url=" + encodeURIComponent(s) + "&time=" + (new Date).getTime() + (c ? "&cid=no" : ""), h.parentNode.insertBefore(d, h), p) {
+          var v = new Date;
+          v.setTime(v.getTime() + 604800), o.cookie = f ? "p-" + p + f + "=1; " + i + "samesite=Strict; expires=" + v.toGMTString() + "; path=/" : "p-" + p + "=1; " + i + "samesite=Strict; expires=" + v.toGMTString() + "; path=/"
+        }
+      }), 0)
+    }(window, document, "https://tracking-gateway.qa.permate.com/get_url")
+  </script>
+  <noscript>
+    <link href="https://tracking-gateway.qa.permate.com/get_url?location=o&noscript=true&url=" rel="stylesheet"/>
+  </noscript>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand offer-custom" href="/">Offer</a>
+    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a aria-current="page" class="nav-link offer-custom active" href="index.html" onmouseout="hideUrl(this)" onmouseover="showUrl(this)">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link offer-custom" href="button.html" onmouseout="hideUrl(this)" onmouseover="showUrl(this)">Button</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link offer-custom" href="iframe.html" onmouseout="hideUrl(this)" onmouseover="showUrl(this)">Iframe</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link offer-custom" href="thank-you.html" onmouseout="hideUrl(this)" onmouseover="showUrl(this)">Thank You</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="card container">
+  <div class="card-header" style="height: 50px">
+    <div class="card-title text-center text-danger" id="urlCode" style="display: none; font-size: 18px"></div>
+  </div>
+  <div class="card-body align-content-center d-flex flex-column justify-content-center align-items-center">
+    <div class="jumbotron">
+      <h1 class="display-1 offer-custom">Offer 4!</h1>
+      <p class="lead offer-custom">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+      <hr class="my-4">
+      <p class="offer-custom">It uses utility classes for typography and spacing to space content out within the larger container.</p>
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="http://kukun.site" role="button">Impression</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/custom.js"></script>
+</body>
+</html>

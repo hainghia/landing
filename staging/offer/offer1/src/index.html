@@ -7,34 +7,39 @@
   <meta content="Prism is a beautiful Bootstrap 4 template for open-source landing pages." name="description"/>
   <link href="https://fonts.googleapis.com/css?family=K2D:300,400,500,700,800" rel="stylesheet">
   <link href="css/bootstrap.css" rel="stylesheet">
-  <meta http-equiv="delegate-ch" content="sec-ch-ua ; sec-ch-ua-mobile https://tracking-gateway.qa.permate.com; sec-ch-ua-arch https://tracking-gateway.qa.permate.com; sec-ch-ua-model https://tracking-gateway.qa.permate.com; sec-ch-ua-platform https://tracking-gateway.qa.permate.com; sec-ch-ua-platform-version https://tracking-gateway.qa.permate.com; sec-ch-ua-bitness https://tracking-gateway.qa.permate.com; sec-ch-ua-full-version-list https://tracking-gateway.qa.permate.com; sec-ch-ua-full-version https://tracking-gateway.qa.permate.com">
+  <meta content="sec-ch-ua ; sec-ch-ua-mobile https://tracking-gateway.qa.permate.com; sec-ch-ua-arch https://tracking-gateway.qa.permate.com; sec-ch-ua-model https://tracking-gateway.qa.permate.com; sec-ch-ua-platform https://tracking-gateway.qa.permate.com; sec-ch-ua-platform-version https://tracking-gateway.qa.permate.com; sec-ch-ua-bitness https://tracking-gateway.qa.permate.com; sec-ch-ua-full-version-list https://tracking-gateway.qa.permate.com; sec-ch-ua-full-version https://tracking-gateway.qa.permate.com" http-equiv="delegate-ch">
   <script id="p-offer-script">
-    !function (e, t, o) {
-      var i = "https:" === e.location.protocol ? "secure; " : "";
-      setTimeout((function () {
-        var c = "", r = /[?&]pm_cid(=([^&#]*)|&|#|$)/.exec(e.location.href);
-        if (r && r[2]) {
-          var n = r[2], p = /[?&]click_id(=([^&#]*)|&|#|$)/.exec(e.location.href);
-          if (p && p[2]) {
-            var a = p[2];
-            c = t.cookie.match(new RegExp("(^| )p-" + n + a + "=([^;]+)"))
-          } else {
-            n = r[2];
-            c = t.cookie.match(new RegExp("(^| )p-" + n + "=([^;]+)"))
-          }
+    !function (e, o, t) {
+    var i = "https:" === e.location.protocol ? "secure; " : "";
+    setTimeout((function () {
+      var c = "", r = "", n = /[?&]pm_cid(=([^&#]*)|&|#|$)/.exec(e.location.href);
+      if (n && n[2]) {
+        var p = n[2], a = /[?&]click_id(=([^&#]*)|&|#|$)/.exec(e.location.href);
+        if (a && a[2]) {
+          var f = a[2];
+          c = o.cookie.match(new RegExp("(^| )p-" + p + f + "=([^;]+)"))
+        } else {
+          p = n[2];
+          c = o.cookie.match(new RegExp("(^| )p-" + p + "=([^;]+)")), r = o.cookie.match(/(^| )pm_click=([^;]+)/)
         }
-        var m = t.cookie.match(/(^| )pm_cep_o=([^;]+)/), s = location.href;
-        if (m && (!n || void 0 === n)) {
-          var f = s.indexOf("?") > -1 ? "&" : "?";
-          s += f + "pm_cep=" + m.pop(), c = m.pop()
+      }
+      var m = o.cookie.match(/(^| )pm_cep_o=([^;]+)/), s = location.href;
+      if (!m || p && void 0 !== p) {
+        if (r) {
+          l = s.indexOf("?") > -1 ? "&" : "?";
+          s += l + "click_id=" + r.pop()
         }
-        var l = t.createElement("script"), d = t.scripts[0];
-        if (l.defer = !0, l.src = o + (-1 === o.indexOf("?") ? "?" : "&") + "ref=" + encodeURIComponent(t.referrer) + "&location=o&url=" + encodeURIComponent(s) + "&time=" + (new Date).getTime() + (c ? "&cid=no" : ""), d.parentNode.insertBefore(l, d), n) {
-          var h = new Date;
-          h.setTime(h.getTime() + 864e3), t.cookie = a ? "p-" + n + a + "=1; " + i + "samesite=Strict; expires=" + h.toGMTString() + "; path=/" : "p-" + n + "=1; " + i + "samesite=Strict; expires=" + h.toGMTString() + "; path=/"
-        }
-      }), 0)
-    }(window, document, "https://tracking-gateway.qa.permate.com/get_url")
+      } else {
+        var l = s.indexOf("?") > -1 ? "&" : "?";
+        s += l + "pm_cep=" + m.pop(), c = m.pop()
+      }
+      var d = o.createElement("script"), h = o.scripts[0];
+      if (d.defer = !0, d.src = t + (-1 === t.indexOf("?") ? "?" : "&") + "ref=" + encodeURIComponent(o.referrer) + "&location=o&url=" + encodeURIComponent(s) + "&time=" + (new Date).getTime() + (c ? "&cid=no" : ""), h.parentNode.insertBefore(d, h), p) {
+        var v = new Date;
+        v.setTime(v.getTime() + 604800), o.cookie = f ? "p-" + p + f + "=1; " + i + "samesite=Strict; expires=" + v.toGMTString() + "; path=/" : "p-" + p + "=1; " + i + "samesite=Strict; expires=" + v.toGMTString() + "; path=/"
+      }
+    }), 0)
+  }(window, document, "https://tracking-gateway.qa.permate.com/get_url")
   </script>
   <noscript>
     <link href="https://tracking-gateway.qa.permate.com/get_url?location=o&noscript=true&url=" rel="stylesheet"/>

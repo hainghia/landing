@@ -2,55 +2,189 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Lander 5</title>
+  <title>Lander 9 | 4 CTA</title>
   <link href="assets/css/bootstrap.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
   <meta http-equiv="delegate-ch" content="sec-ch-ua ; sec-ch-ua-mobile https://tracking-gateway.qa.permate.com; sec-ch-ua-arch https://tracking-gateway.qa.permate.com; sec-ch-ua-model https://tracking-gateway.qa.permate.com; sec-ch-ua-platform https://tracking-gateway.qa.permate.com; sec-ch-ua-platform-version https://tracking-gateway.qa.permate.com; sec-ch-ua-bitness https://tracking-gateway.qa.permate.com; sec-ch-ua-full-version-list https://tracking-gateway.qa.permate.com; sec-ch-ua-full-version https://tracking-gateway.qa.permate.com">
   <script id="p-lander-script">
     !function (e, t, o) {
-    var i = "https:" === e.location.protocol ? "secure; " : "";
-    setTimeout((function () {
-      var c = "", r = /[?&]pm_cid(=([^&#]*)|&|#|$)/.exec(e.location.href);
-      if (r && r[2]) {
-        var n = r[2], p = /[?&]click_id(=([^&#]*)|&|#|$)/.exec(e.location.href);
-        if (p && p[2]) {
-          var a = p[2];
-          c = t.cookie.match(new RegExp("(^| )p-" + n + a + "=([^;]+)"))
-        } else {
-          n = r[2];
-          c = t.cookie.match(new RegExp("(^| )p-" + n + "=([^;]+)"))
+      var i = "https:" === e.location.protocol ? "secure; " : "";
+      setTimeout((function () {
+        var c = "", r = /[?&]pm_cid(=([^&#]*)|&|#|$)/.exec(e.location.href);
+        if (r && r[2]) {
+          var n = r[2], p = /[?&]click_id(=([^&#]*)|&|#|$)/.exec(e.location.href);
+          if (p && p[2]) {
+            var a = p[2];
+            c = t.cookie.match(new RegExp("(^| )p-" + n + a + "=([^;]+)"))
+          } else {
+            n = r[2];
+            c = t.cookie.match(new RegExp("(^| )p-" + n + "=([^;]+)"))
+          }
         }
-      }
-      var s = t.cookie.match(/(^| )pm_cep_l=([^;]+)/), m = location.href;
-      if (s && (!n || void 0 === n)) {
-        var f = m.indexOf("?") > -1 ? "&" : "?";
-        m += f + "pm_cep=" + s.pop(), c = s.pop()
-      }
-      var l = t.createElement("script"), d = t.scripts[0];
-      if (l.defer = !0, l.src = o + (-1 === o.indexOf("?") ? "?" : "&") + "ref=" + encodeURIComponent(t.referrer) + "&location=l&url=" + encodeURIComponent(m) + "&time=" + (new Date).getTime() + (c ? "&cid=no" : ""), d.parentNode.insertBefore(l, d), n) {
-        var h = new Date;
-        h.setTime(h.getTime() + 864e3), t.cookie = a ? "p-" + n + a + "=1; " + i + "samesite=Strict; expires=" + h.toGMTString() + "; path=/" : "p-" + n + "=1; " + i + "samesite=Strict; expires=" + h.toGMTString() + "; path=/"
-      }
-    }), 0)
-  }(window, document, "https://tracking-gateway.qa.permate.com/get_url")
+        var s = t.cookie.match(/(^| )pm_cep_l=([^;]+)/), m = location.href;
+        if (s && (!n || void 0 === n)) {
+          var f = m.indexOf("?") > -1 ? "&" : "?";
+          m += f + "pm_cep=" + s.pop(), c = s.pop()
+        }
+        var l = t.createElement("script"), d = t.scripts[0];
+        if (l.defer = !0, l.src = o + (-1 === o.indexOf("?") ? "?" : "&") + "ref=" + encodeURIComponent(t.referrer) + "&location=l&url=" + encodeURIComponent(m) + "&time=" + (new Date).getTime() + (c ? "&cid=no" : ""), d.parentNode.insertBefore(l, d), n) {
+          var h = new Date;
+          h.setTime(h.getTime() + 864e3), t.cookie = a ? "p-" + n + a + "=1; " + i + "samesite=Strict; expires=" + h.toGMTString() + "; path=/" : "p-" + n + "=1; " + i + "samesite=Strict; expires=" + h.toGMTString() + "; path=/"
+        }
+      }), 0)
+    }(window, document, "https://tracking-gateway.qa.permate.com/get_url")
   </script>
   <noscript>
     <link href="https://tracking-gateway.qa.permate.com/get_url?location=l&noscript=true&url=" rel="stylesheet"/>
   </noscript>
-
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet" type="text/css"/>
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+  <link href="css/style.css" rel="stylesheet"/>
+  <link href="css/responsive.css" rel="stylesheet"/>
 </head>
 <body>
-<div class="card container vh-100">
-  <div class="card-body align-content-center d-flex flex-column justify-content-center align-items-center">
-    <div class="title alert alert-primary position-absolute" id="urlCode" style="display: none; margin-top: -200px"></div>
-    <h1 class="d-flex text-success">Lander 5 - có 3 nút CTA</h1>
-    <div class="d-flex">
-      <a class="mx-1 btn btn-primary btn-lg" href="https://tracking-gateway.qa.permate.com/c/l/1" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">Click CTA 1</a>
-      <a class="mx-1 btn btn-dark btn-lg" href="https://tracking-gateway.qa.permate.com/c/l/2" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">Click CTA 2</a>
-      <a class="mx-1 btn btn-success btn-lg" href="https://tracking-gateway.qa.permate.com/c/l/3" onmouseover="showUrl(this)" onmouseout="hideUrl(this)">Click CTA 3</a>
+
+<div class="hero_area">
+  <header class="header_section">
+    <nav class="navbar navbar-expand-lg custom_nav-container ">
+      <a class="navbar-brand" href="index.html">
+          <span>
+            Permate <br>
+          </span>
+      </a>
+    </nav>
+  </header>
+  <section class="slider_section">
+    <div class="slider_container">
+      <div class="carousel slide" data-ride="carousel" id="carouselExampleIndicators">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="detail-box">
+                    <h1>
+                      Welcome To Tracker <br>
+                      Presentation
+                    </h1>
+                    <p>
+                      Sequi perspiciatis nulla reiciendis, rem, tenetur impedit, eveniet non necessitatibus error distinctio mollitia suscipit. Nostrum fugit doloribus consequatur distinctio esse, possimus maiores aliquid repellat beatae cum, perspiciatis enim, accusantium perferendis.
+                    </p>
+                    <a href="https://tracking-gateway.qa.permate.com/c/l/1">
+                      Offer 1
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-5 ">
+                  <div class="img-box">
+                    <img alt="" src="images/never.jpg"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="detail-box">
+                    <h1>
+                      Welcome To Tracker <br>
+                      Presentation
+                    </h1>
+                    <p>
+                      Sequi perspiciatis nulla reiciendis, rem, tenetur impedit, eveniet non necessitatibus error distinctio mollitia suscipit. Nostrum fugit doloribus consequatur distinctio esse, possimus maiores aliquid repellat beatae cum, perspiciatis enim, accusantium perferendis.
+                    </p>
+                    <a href="https://tracking-gateway.qa.permate.com/c/l/2">
+                      Offer 2
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-5 ">
+                  <div class="img-box">
+                    <img alt="" src="images/never.jpg"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item ">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="detail-box">
+                    <h1>
+                      Welcome To Tracker <br>
+                      Presentation
+                    </h1>
+                    <p>
+                      Sequi perspiciatis nulla reiciendis, rem, tenetur impedit, eveniet non necessitatibus error distinctio mollitia suscipit. Nostrum fugit doloribus consequatur distinctio esse, possimus maiores aliquid repellat beatae cum, perspiciatis enim, accusantium perferendis.
+                    </p>
+                    <a href="https://tracking-gateway.qa.permate.com/c/l/3">
+                      Offer 3
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-5 ">
+                  <div class="img-box">
+                    <img alt="" src="images/never.jpg"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item ">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="detail-box">
+                    <h1>
+                      Welcome To Tracker <br>
+                      Presentation
+                    </h1>
+                    <p>
+                      Sequi perspiciatis nulla reiciendis, rem, tenetur impedit, eveniet non necessitatibus error distinctio mollitia suscipit. Nostrum fugit doloribus consequatur distinctio esse, possimus maiores aliquid repellat beatae cum, perspiciatis enim, accusantium perferendis.
+                    </p>
+                    <a href="https://tracking-gateway.qa.permate.com/c/l/4">
+                      Offer 4
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-5 ">
+                  <div class="img-box">
+                    <img alt="" src="images/never.jpg"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="carousel_btn-box">
+          <a class="carousel-control-prev" data-slide="prev" href="#carouselExampleIndicators" role="button">
+            <i aria-hidden="true" class="fa fa-arrow-left"></i>
+            <span class="sr-only">Previous</span>
+          </a>
+          <img alt="" src="images/line.png"/>
+          <a class="carousel-control-next" data-slide="next" href="#carouselExampleIndicators" role="button">
+            <i aria-hidden="true" class="fa fa-arrow-right"></i>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- end slider section -->
+
 </div>
+
+
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/custom.js"></script>
 </body>

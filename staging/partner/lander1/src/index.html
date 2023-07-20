@@ -5,34 +5,39 @@
   <title>Lander 1 | 1 CTA</title>
   <link href="assets/css/bootstrap.css" rel="stylesheet">
   <link href="assets/css/main.css" rel="stylesheet">
-  <meta http-equiv="delegate-ch" content="sec-ch-ua ; sec-ch-ua-mobile https://tracking-gateway.qa.permate.com; sec-ch-ua-arch https://tracking-gateway.qa.permate.com; sec-ch-ua-model https://tracking-gateway.qa.permate.com; sec-ch-ua-platform https://tracking-gateway.qa.permate.com; sec-ch-ua-platform-version https://tracking-gateway.qa.permate.com; sec-ch-ua-bitness https://tracking-gateway.qa.permate.com; sec-ch-ua-full-version-list https://tracking-gateway.qa.permate.com; sec-ch-ua-full-version https://tracking-gateway.qa.permate.com">
+  <meta content="sec-ch-ua ; sec-ch-ua-mobile https://tracking-gateway.qa.permate.com; sec-ch-ua-arch https://tracking-gateway.qa.permate.com; sec-ch-ua-model https://tracking-gateway.qa.permate.com; sec-ch-ua-platform https://tracking-gateway.qa.permate.com; sec-ch-ua-platform-version https://tracking-gateway.qa.permate.com; sec-ch-ua-bitness https://tracking-gateway.qa.permate.com; sec-ch-ua-full-version-list https://tracking-gateway.qa.permate.com; sec-ch-ua-full-version https://tracking-gateway.qa.permate.com" http-equiv="delegate-ch">
   <script id="p-lander-script">
-    !function (e, t, o) {
-    var i = "https:" === e.location.protocol ? "secure; " : "";
-    setTimeout((function () {
-      var c = "", r = /[?&]pm_cid(=([^&#]*)|&|#|$)/.exec(e.location.href);
-      if (r && r[2]) {
-        var n = r[2], p = /[?&]click_id(=([^&#]*)|&|#|$)/.exec(e.location.href);
-        if (p && p[2]) {
-          var a = p[2];
-          c = t.cookie.match(new RegExp("(^| )p-" + n + a + "=([^;]+)"))
-        } else {
-          n = r[2];
-          c = t.cookie.match(new RegExp("(^| )p-" + n + "=([^;]+)"))
+    !function (e, t, i) {
+      var o = "https:" === e.location.protocol ? "secure; " : "";
+      setTimeout((function () {
+        var c = "", r = "", n = /[?&]pm_cid(=([^&#]*)|&|#|$)/.exec(e.location.href);
+        if (n && n[2]) {
+          var p = n[2], a = /[?&]click_id(=([^&#]*)|&|#|$)/.exec(e.location.href);
+          if (a && a[2]) {
+            var m = a[2];
+            c = t.cookie.match(new RegExp("(^| )p-" + p + m + "=([^;]+)"))
+          } else {
+            p = n[2];
+            c = t.cookie.match(new RegExp("(^| )p-" + p + "=([^;]+)")), r = t.cookie.match(/(^| )pm_click=([^;]+)/)
+          }
         }
-      }
-      var s = t.cookie.match(/(^| )pm_cep_l=([^;]+)/), m = location.href;
-      if (s && (!n || void 0 === n)) {
-        var f = m.indexOf("?") > -1 ? "&" : "?";
-        m += f + "pm_cep=" + s.pop(), c = s.pop()
-      }
-      var l = t.createElement("script"), d = t.scripts[0];
-      if (l.defer = !0, l.src = o + (-1 === o.indexOf("?") ? "?" : "&") + "ref=" + encodeURIComponent(t.referrer) + "&location=l&url=" + encodeURIComponent(m) + "&time=" + (new Date).getTime() + (c ? "&cid=no" : ""), d.parentNode.insertBefore(l, d), n) {
-        var h = new Date;
-        h.setTime(h.getTime() + 864e3), t.cookie = a ? "p-" + n + a + "=1; " + i + "samesite=Strict; expires=" + h.toGMTString() + "; path=/" : "p-" + n + "=1; " + i + "samesite=Strict; expires=" + h.toGMTString() + "; path=/"
-      }
-    }), 0)
-  }(window, document, "https://tracking-gateway.qa.permate.com/get_url")
+        var l = t.cookie.match(/(^| )pm_cep_l=([^;]+)/), s = location.href;
+        if (!l || p && void 0 !== p) {
+          if (r) {
+            f = s.indexOf("?") > -1 ? "&" : "?";
+            s += f + "click_id=" + r.pop()
+          }
+        } else {
+          var f = s.indexOf("?") > -1 ? "&" : "?";
+          s += f + "pm_cep=" + l.pop(), c = l.pop()
+        }
+        var d = t.createElement("script"), h = t.scripts[0];
+        if (d.defer = !0, d.src = i + (-1 === i.indexOf("?") ? "?" : "&") + "ref=" + encodeURIComponent(t.referrer) + "&location=l&url=" + encodeURIComponent(s) + "&time=" + (new Date).getTime() + (c ? "&cid=no" : ""), h.parentNode.insertBefore(d, h), p) {
+          var v = new Date;
+          v.setTime(v.getTime() + 604800), t.cookie = m ? "p-" + p + m + "=1; " + o + "samesite=Strict; expires=" + v.toGMTString() + "; path=/" : "p-" + p + "=1; " + o + "samesite=Strict; expires=" + v.toGMTString() + "; path=/"
+        }
+      }), 0)
+    }(window, document, "https://tracking-gateway.qa.permate.com/get_url")
   </script>
   <noscript>
     <link href="https://tracking-gateway.qa.permate.com/get_url?location=l&noscript=true&url=" rel="stylesheet"/>

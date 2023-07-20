@@ -14,8 +14,11 @@ deploy:
 	docker compose -f staging/docker-compose.yaml build
 	docker compose -f staging/docker-compose.yaml up -d
 
-	docker compose -f haproxy/docker-compose.yaml down
-	docker compose -f haproxy/docker-compose.yaml up -d
+	docker compose -f development/haproxy/docker-compose.yaml down
+	docker compose -f development/haproxy/docker-compose.yaml up -d
+
+	docker compose -f staging/haproxy/docker-compose.yaml down
+	docker compose -f staging/haproxy/docker-compose.yaml up -d
 
 .PHONY: ec2_build
 ec2_build:
